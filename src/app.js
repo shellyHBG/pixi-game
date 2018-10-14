@@ -1,6 +1,5 @@
-import {utils} from 'pixi.js';
-import * as p2 from 'p2';
+import createApp from './facade/application';
 
-console.log(p2);
+document.body.appendChild(createApp());
 
-utils.sayHello('Hello');
+
