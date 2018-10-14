@@ -4,7 +4,8 @@
   "description": "dev game with pixi",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "start": "webpack-dev-server --open --config webpack.dev.js"
   },
   "author": "shelly",
   "license": "MIT",
@@ -13,11 +14,23 @@
     "url": "https://github.com/shellyHBG/pixi-game.git"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.0.2",
     "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^1.0.0",
     "file-loader": "^2.0.0",
-    "style-loader": "^0.23.1",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2"
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.2",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.8",
+    "webpack-merge": "^4.1.4"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0"
   }
 }
