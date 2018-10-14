@@ -1,5 +1,15 @@
+// @flow
+
+/*
+ *  Description: Entry
+ *  Author: Kayac
+ */
+
+//  ============== Dependencies =========================
+import './application.css';
 import createApp from './facade/application';
 
-document.body.appendChild(createApp());
+//  ============== Execution =========================
+document.body.appendChild(createApp().view);
 
 
