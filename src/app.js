@@ -1,3 +1,3 @@
-import * as PIXI from 'pixi.js';
+import {utils} from 'pixi.js';
 
-console.log(PIXI);
+utils.sayHello('Hello');
