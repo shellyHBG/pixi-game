@@ -9,7 +9,5 @@
 import {loader} from 'pixi.js';
 
 //  ============== Function =========================
-loader.load(console.log);
-
 export default loader;
 

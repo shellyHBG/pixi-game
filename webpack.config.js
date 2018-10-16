@@ -13,11 +13,6 @@ module.exports = ({mode}) => merge(modeConfig(mode), {
     filename: '[name].bundle.js',
     path: `${__dirname}/dist`,
   },
-
-  externals: {
-    'pixi.js': 'PIXI',
-    'p2': 'p2',
-  },
   module: {
     rules: [
       //  JavaScript Loader
