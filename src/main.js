@@ -4,7 +4,10 @@
 // event manager test
 import { EventManager, TestEvent } from './foundation/eventManager.js';
 
-let registerEventIndex = EventManager.RegisterEventListner(TestEvent, this, ()=>{ console.log("test event triger!!!"); });
+function testEventCall(event) {
+    console.log(event.GetEventName() + " triger!!!");
+}
+let registerEventIndex = EventManager.RegisterEventListner(TestEvent, this, testEventCall);
 EventManager.Update();
 
 let testEvent = new TestEvent();

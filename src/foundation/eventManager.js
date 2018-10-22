@@ -1,19 +1,18 @@
-'use strict'
-
-function IEventUnit()
-{
-    // string
-    this.GetEventName = function(){ };
-
-    // boolean
-    this.GetSendAll = function(){ };
-
-    // any object
-    this.GetSecondKeyListened = function(){ };
-}
-
-function EventCaller(eventName, secondKey, callerObject, callback)
-{
+/**
+ * EventCaller
+ * Param:
+ *  eventName: string
+ *  secondKey: object
+ *  callerObject: caller of callback object
+ *  callback: callback (event?: object{
+ *      function GetEventName(),
+ *      function GetSendAll(),
+ *      function GetSecondKeyListened()
+ *  }) => void
+ * Output:
+ *  CallerObject(), FunctionCall(), SecondKey(), EventName()
+ */
+function EventCaller(eventName, secondKey, callerObject, callback) {
     // string
     let _eventName = eventName;
 
@@ -42,14 +41,12 @@ function EventCaller(eventName, secondKey, callerObject, callback)
     }
 }
 
-function EventManagerObject()
-{
-    // let _instance;
-    // let _createInstance = function() {
-    //     let ins = new Object();
-    //     return ins;
-    // }
-
+/**
+ * EventManagerObject
+ * Output:
+ *  RegisterEventListner(), UnregisterEventListener(), Send(), Update()
+ */
+function EventManagerObject() {
     let _waitingAddEventTable = {};     // map {index: EventCaller}
     let _waitingRemoveEventList = [];   // nuumber []
     let _waitingSendEventList = [];     // IEventUnit []
@@ -58,21 +55,21 @@ function EventManagerObject()
     let _callbackTable = {};            // map {int: EventCaller}
     let _currentAvailableIndex = 1;
 
-    function SendPendingEvents()
-    {
+    /**
+     * SendPendingEvents
+     */
+    function SendPendingEvents() {
         //console.log(_waitingSendEventList);
-        while(_waitingSendEventList.length > 0)
-        {
+        while(_waitingSendEventList.length > 0) {
+
             let event = _waitingSendEventList.pop();
             let eventName = event.GetEventName();
-            if (!_eventTable.hasOwnProperty(eventName))
-            {
+            if (!_eventTable.hasOwnProperty(eventName)) {
                 continue;
             }
 
             let secondKeyEventTable = _eventTable[eventName];
-            if (event.GetSendAll())
-            {
+            if (event.GetSendAll()) {
                 Object.keys(secondKeyEventTable).forEach(secondKey=>{
                     secondKeyEventTable[secondKey].forEach(listenerIndex=>{
                         //console.log( "yyyyy " + eventName );
@@ -84,13 +81,11 @@ function EventManagerObject()
                     });
                 });
             }
-            else
-            {
-                if (!secondKeyEventTable.hasOwnProperty(event.GetSecondKeyListened()))
-                {
+            else {
+                if (!secondKeyEventTable.hasOwnProperty(event.GetSecondKeyListened())) {
                     continue;
                 }
-                
+
                 let secondKeyListenerList = secondKeyEventTable[event.GetSecondKeyListened()];
                 secondKeyListenerList.forEach(listenerIndex=>{
                     //console.log( "xxxxx " + eventName );
@@ -104,33 +99,30 @@ function EventManagerObject()
         }
     }
 
-    function AddPendingEvents()
-    {
+    /**
+     * AddPendingEvents
+     */
+    function AddPendingEvents() {
         //console.log(_waitingAddEventTable);
         let keys = Object.keys(_waitingAddEventTable);
-        keys.forEach(element=>
-        {
+        keys.forEach(element=> {
             //console.log("_waitingAddEventTable: " + element);
             let listener = _waitingAddEventTable[element];
             let secondKeyEventTable = {};
             let listenerCollector = [];
 
-            if (_eventTable.hasOwnProperty(listener.EventName()))
-            {
+            if (_eventTable.hasOwnProperty(listener.EventName())) {
                 secondKeyEventTable = _eventTable[listener.EventName()];
             }
-            else
-            {
+            else {
                 secondKeyEventTable = {};
                 _eventTable[listener.EventName()] = secondKeyEventTable;
             }
 
-            if (secondKeyEventTable.hasOwnProperty(listener.SecondKey()))
-            {
+            if (secondKeyEventTable.hasOwnProperty(listener.SecondKey())) {
                 listenerCollector = secondKeyEventTable[listener.SecondKey()];
             }
-            else
-            {
+            else {
                 listenerCollector = [];
                 secondKeyEventTable[listener.SecondKey()] = listenerCollector;
             }
@@ -142,45 +134,40 @@ function EventManagerObject()
         _waitingAddEventTable = {};
     }
 
-    function RemovePendingEvents()
-    {
+    /**
+     * RemovePendingEvents
+     */
+    function RemovePendingEvents() {
         //console.log(_waitingRemoveEventList);
-        while(Object.keys(_waitingRemoveEventList).length > 0)
-        {
+        while(Object.keys(_waitingRemoveEventList).length > 0) {
+
             let removingIndex = _waitingRemoveEventList.pop();
-            if (_callbackTable.hasOwnProperty(removingIndex))
-            {
+            if (_callbackTable.hasOwnProperty(removingIndex)) {
                 let removingListener = _callbackTable[removingIndex];
-                if (!removingListener || !_eventTable.hasOwnProperty(removingListener.EventName()))
-                {
+                if (!removingListener || !_eventTable.hasOwnProperty(removingListener.EventName())) {
                     continue;
                 }
 
                 let secondKeyEventTable = _eventTable[removingListener.EventName()];
-                if (!secondKeyEventTable || !secondKeyEventTable.hasOwnProperty(removingListener.SecondKey()))
-                {
+                if (!secondKeyEventTable || !secondKeyEventTable.hasOwnProperty(removingListener.SecondKey())) {
                     continue;
                 }
 
                 let listenerCollector = secondKeyEventTable[removingListener.SecondKey()];
-                if (!listenerCollector)
-                {
+                if (!listenerCollector) {
                     continue;
                 }
 
                 let index = listenerCollector.indexOf(removingIndex);
-                if (index >= 0)
-                {
+                if (index >= 0) {
                     listenerCollector.splice(index, 1);
                 }
 
-                if (listenerCollector.length <= 0)
-                {
+                if (listenerCollector.length <= 0) {
                     delete secondKeyEventTable[removingListener.SecondKey()];
                 }
 
-                if (Object.keys(secondKeyEventTable).length <= 0)
-                {
+                if (Object.keys(secondKeyEventTable).length <= 0) {
                     delete _eventTable[removingListener.EventName()];
                 }
             }
@@ -188,14 +175,25 @@ function EventManagerObject()
     }
 
     return {
-        // GetInstance: function() {
-        //     if (!_instance) {
-        //         _instance = _createInstance();
-        //     }
-        //     return _instance;
-        // },
-        RegisterEventListner: function(type, callerObject, callback, secondKey = new Object) 
-        {
+        /**
+         * RegisterEventListner
+         * Params:
+         *  type: event type {
+         *      function GetEventName(),
+         *      function GetSendAll(),
+         *      function GetSecondKeyListened()
+         *  }
+         *  callerObject: the caller of callback object
+         *  callback: (event?: object{
+         *      function GetEventName(),
+         *      function GetSendAll(),
+         *      function GetSecondKeyListened()
+         *  }) => void
+         *  secondKey: object
+         * Output:
+         *  registered id
+         */
+        RegisterEventListner: function(type, callerObject, callback, secondKey = new Object) {
             let currentIndex = _currentAvailableIndex;
 
             let instance = new type();
@@ -209,17 +207,28 @@ function EventManagerObject()
             ++ _currentAvailableIndex;
             return currentIndex;
         },
-        UnregisterEventListener: function(registerId)
-        {
+        /**
+         * UnregisterEventListener
+         * Params:
+         *  registerId: number, registered id
+         */
+        UnregisterEventListener: function(registerId) {
             _waitingRemoveEventList.push(registerId);
         },
-        Send: function(event)   // IEventUnit
-        {
+        /**
+         * Send
+         * Params:
+         *  event: event object {
+         *      function GetEventName(),
+         *      function GetSendAll(),
+         *      function GetSecondKeyListened()
+         *  }
+         */
+        Send: function(event) {
             //console.log( "Send event: " + event.GetEventName() );
             _waitingSendEventList.push(event);
         },
-        Update: function()
-        {
+        Update: function() {
             AddPendingEvents();
             RemovePendingEvents();
             SendPendingEvents();
@@ -228,21 +237,19 @@ function EventManagerObject()
 };
 
 const EventManager = new EventManagerObject();
-
-/* test event */
-
-function TestEvent() {}
-// inheritance 
-TestEvent.prototype = new IEventUnit();
-// override constructor and ...
-TestEvent.prototype.constructor = TestEvent;
-TestEvent.prototype.GetEventName = function() { return  "TestEvent"; }
-TestEvent.prototype.GetSendAll = function() { return  true; }
-TestEvent.prototype.GetSecondKeyListened = function() { return  null; }
-
-
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze
 // A frozen object can no longer be changed;...
 Object.freeze(EventManager);
-exports.EventManager = EventManager;
-exports.TestEvent = TestEvent;
+
+/* test event */
+function TestEvent() {
+    this.GetEventName = function() { return  "TestEvent"; }
+    this.GetSendAll = function() { return  true; }
+    this.GetSecondKeyListened = function() { return  null; }
+}
+
+/* interface */
+export {
+    EventManager,
+    TestEvent
+}
