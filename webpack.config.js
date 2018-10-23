@@ -7,11 +7,16 @@ module.exports = {
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: `${__dirname}/dist`
   },
   devtool: 'source-map',
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        use: ['babel-loader'],
+        exclude: `${__dirname}/node_modules`,
+      },
       {
         test: /\.css$/,
         use: [
@@ -20,16 +25,22 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          'file-loader'
-        ]
+        test: /\.(png|svg|jpg|gif|ico)$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            outputPath: 'assets/images/'
+          }
+        }]
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [
-          'file-loader'
-        ]
+        use: [{
+          loader: 'file-loader',
+          options: {
+            outputPath: 'assets/fonts/'
+          }
+        }]
       },
     ]
   },
