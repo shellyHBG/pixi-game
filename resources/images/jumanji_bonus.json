@@ -1,0 +1,124 @@
+{"frames": {
+
+"SlotBouns_Animal_01.png":
+{
+	"frame": {"x":0,"y":0,"w":52,"h":53},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":52,"h":53},
+	"sourceSize": {"w":52,"h":53},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"SlotBouns_Animal_02.png":
+{
+	"frame": {"x":52,"y":0,"w":52,"h":53},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":52,"h":53},
+	"sourceSize": {"w":52,"h":53},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"SlotBouns_Animal_03.png":
+{
+	"frame": {"x":104,"y":0,"w":52,"h":53},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":52,"h":53},
+	"sourceSize": {"w":52,"h":53},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"SlotBouns_Animal_04.png":
+{
+	"frame": {"x":156,"y":0,"w":52,"h":53},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":52,"h":53},
+	"sourceSize": {"w":52,"h":53},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"SlotBouns_Animal_05.png":
+{
+	"frame": {"x":0,"y":53,"w":52,"h":53},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":52,"h":53},
+	"sourceSize": {"w":52,"h":53},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"SlotBouns_Animal_06.png":
+{
+	"frame": {"x":52,"y":53,"w":52,"h":53},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":52,"h":53},
+	"sourceSize": {"w":52,"h":53},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"SlotBouns_Animal_07.png":
+{
+	"frame": {"x":104,"y":53,"w":52,"h":53},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":52,"h":53},
+	"sourceSize": {"w":52,"h":53},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"SlotBouns_Animal_08.png":
+{
+	"frame": {"x":156,"y":53,"w":52,"h":53},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":52,"h":53},
+	"sourceSize": {"w":52,"h":53},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"SlotBouns_Piece_01.png":
+{
+	"frame": {"x":0,"y":106,"w":77,"h":107},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":77,"h":107},
+	"sourceSize": {"w":77,"h":107},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"SlotBouns_Piece_02.png":
+{
+	"frame": {"x":77,"y":106,"w":77,"h":107},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":77,"h":107},
+	"sourceSize": {"w":77,"h":107},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"SlotBouns_Piece_03.png":
+{
+	"frame": {"x":154,"y":106,"w":77,"h":107},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":77,"h":107},
+	"sourceSize": {"w":77,"h":107},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"SlotBouns_Piece_04.png":
+{
+	"frame": {"x":0,"y":213,"w":77,"h":107},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":77,"h":107},
+	"sourceSize": {"w":77,"h":107},
+	"anchor": {"x":0.5,"y":0.5}
+}},
+"animations": {
+	"SlotBouns_Animal": ["SlotBouns_Animal_01.png","SlotBouns_Animal_02.png","SlotBouns_Animal_03.png","SlotBouns_Animal_04.png","SlotBouns_Animal_05.png","SlotBouns_Animal_06.png","SlotBouns_Animal_07.png","SlotBouns_Animal_08.png"],
+	"SlotBouns_Piece": ["SlotBouns_Piece_01.png","SlotBouns_Piece_02.png","SlotBouns_Piece_03.png","SlotBouns_Piece_04.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "jumanji_bonus.png",
+	"format": "RGBA8888",
+	"size": {"w":256,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:1b605cea48696b35debe61c5246c0e4e:f167ef2fbc67975f710c9f38605e85e2:2b40b3acb2a0a53beefa402bb9870045$"
+}
+}

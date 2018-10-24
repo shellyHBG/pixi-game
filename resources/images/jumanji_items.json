@@ -1,0 +1,93 @@
+{"frames": {
+
+"0.png":
+{
+	"frame": {"x":0,"y":0,"w":120,"h":110},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":110},
+	"sourceSize": {"w":120,"h":110},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"1.png":
+{
+	"frame": {"x":120,"y":0,"w":120,"h":110},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":110},
+	"sourceSize": {"w":120,"h":110},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"2.png":
+{
+	"frame": {"x":240,"y":0,"w":120,"h":110},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":110},
+	"sourceSize": {"w":120,"h":110},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"3.png":
+{
+	"frame": {"x":360,"y":0,"w":120,"h":110},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":110},
+	"sourceSize": {"w":120,"h":110},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"4.png":
+{
+	"frame": {"x":0,"y":110,"w":120,"h":110},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":110},
+	"sourceSize": {"w":120,"h":110},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"5.png":
+{
+	"frame": {"x":120,"y":110,"w":120,"h":110},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":110},
+	"sourceSize": {"w":120,"h":110},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"6.png":
+{
+	"frame": {"x":240,"y":110,"w":120,"h":110},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":110},
+	"sourceSize": {"w":120,"h":110},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"7.png":
+{
+	"frame": {"x":360,"y":110,"w":120,"h":110},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":110},
+	"sourceSize": {"w":120,"h":110},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"8.png":
+{
+	"frame": {"x":0,"y":220,"w":120,"h":110},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":110},
+	"sourceSize": {"w":120,"h":110},
+	"anchor": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "jumanji_items.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:8357e05d9201884ebebdb364e96956cc:81c8c69e8ca1240af16546d6283b190c:19b9f6d0fe010efd06b84d728c97807c$"
+}
+}
