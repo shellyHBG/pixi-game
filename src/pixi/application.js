@@ -6,7 +6,9 @@ let Application = PIXI.Application,
     resources = PIXI.loader.resources,
     TextureCache = PIXI.utils.TextureCache,
     Sprite = PIXI.Sprite,
-    Rectangle = PIXI.Rectangle;
+    Rectangle = PIXI.Rectangle,
+    Text = PIXI.Text,
+    TextStyle = PIXI.TextStyle;
 
 export {
     Application,
@@ -15,5 +17,7 @@ export {
     resources,
     TextureCache,
     Sprite,
-    Rectangle
+    Rectangle,
+    Text,
+    TextStyle
 }

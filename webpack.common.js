@@ -1,5 +1,6 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -9,7 +10,7 @@ module.exports = {
     filename: '[name].bundle.js',
     path: `${__dirname}/dist`
   },
-  devtool: 'source-map',
+  // devtool: 'source-map',
   module: {
     rules: [
       {
@@ -30,25 +31,31 @@ module.exports = {
         use: [{
           loader: 'file-loader',
           options: {
-            outputPath: 'assets/images/'
+            name: '[name].[ext]',
+            outputPath: 'assets/images'
           }
-        }]
+        }],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [{
           loader: 'file-loader',
           options: {
-            outputPath: 'assets/fonts/'
+            name: '[name].[ext]',
+            outputPath: 'assets/fonts'
           }
-        }]
-      },
+        }],
+      }
     ]
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      favicon: './favicon.ico'
+    })
   ],
   externals: {
-    "pixi.js": "PIXI"
+    "pixi.js": "PIXI",
   }
 };

@@ -1,14 +1,27 @@
-import { ResourceManager } from './../foundation/resourceManager.js';
-
-function displayScene() {
-    let tex0 = ResourceManager.GetTexture("0.png");
-    let bonus_animal1 = ResourceManager.GetTexture("SlotBouns_Animal_01.png");
-
-}
+import { Aquarium } from './aquarium.js';
+import * as EventSystem from './../foundation/eventEmitter.js';
 
 function GameObject() {
+
+    let pixi_app = null;
+    let _aquarium = null;
+
+    function displayScene() {
+
+        _aquarium = new Aquarium(pixi_app, 5);
+        //_aquarium.Start();
+    }
+
+    function UpdateScene(delta) {
+        //console.log("update game scene");
+        _aquarium.Update(delta);
+    }
+
     return {
-        Run() {
+        Run: function(app) {
+            pixi_app = app;
+            //console.log(this);
+            EventSystem.On(EventSystem.EventType.Game_Loop, UpdateScene, this);
             displayScene();
         }
     }
