@@ -6,6 +6,7 @@ const EventSystem = new EventEmitter();
 const EventType = {
     Game_Run: "game:run",
     Game_Loop: "game:loop",
+    Game_Resize: "game:resize",
 };
 
 function GetSystem() {

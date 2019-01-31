@@ -1,6 +1,6 @@
 import * as Vector from 'victor';
 
-function Fish(name, sprite, pos, ori, vel) {
+function Fish(name, sprite, level, pos, ori, vel) {
 
     let _name = name;
     let _sprite = sprite;
@@ -9,20 +9,27 @@ function Fish(name, sprite, pos, ori, vel) {
     let _velocity = vel;
 
     let _freezeTime = 0;
+    let _localScale = 0.3;
+    let _pointLevel = level;
+
+    let _isDead = false;
 
     function orienteSprite() {
         if (_orientation.x > 0) {
-            _sprite.scale.x = 1;
+            _sprite.scale.x = _localScale;
         }
         else if (_orientation.x < 0) {
-            _sprite.scale.x = -1;
+            _sprite.scale.x = -1 * _localScale;
         }
     }
 
     return {
+        Point: _pointLevel,
+        IsDead: _isDead,
         Init: function() {
             console.log(_name + ", " + _sprite + ", " + _position + ", " + _orientation + ", " + _velocity);
             _sprite.position.set(_position.x, _position.y);
+            _sprite.scale.set(_localScale, _localScale);
             orienteSprite();
         },
         Freeze: function(time) {
@@ -39,8 +46,17 @@ function Fish(name, sprite, pos, ori, vel) {
             _position = pos;
             //console.log(_name + " new position is " + _position[0] + ", " + _position[1]);
         },
+        Dead: function() {
+            if (_isDead) {
+                return;
+            }
+            _isDead = true;
+            _sprite = undefined;
+        },
         Move: function(delta) {
-
+            if (_isDead) {
+                return;
+            }
             _position.add(new Vector(_orientation.x * _velocity * delta, _orientation.y * _velocity * delta));
             _sprite.position.set(_position.x, _position.y);
             //console.log(_name + " new position is " + _position[0] + ", " + _position[1]);
@@ -52,6 +68,9 @@ function Fish(name, sprite, pos, ori, vel) {
                 ori: _orientation,
                 vel: _velocity,
             }
+        },
+        Sprite: function() {
+            return _sprite;
         },
         Update: function(delta) {
             if (_freezeTime > 0) {
